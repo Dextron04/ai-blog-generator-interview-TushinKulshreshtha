@@ -1,5 +1,8 @@
 # Flask Application
 
+![3def63d8-9cb3-4a2d-98a1-0620dd354fd8](https://github.com/user-attachments/assets/d1f640bd-5dec-426b-9bf9-a8319d106968)
+
+
 ## Setup
 
 1. Create a virtual environment (optional but recommended):
