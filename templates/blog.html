@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post for {{ keyword }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='blog.css') }}">
+</head>
+
+<body>
+    <div class="blog-container">
+        {{ html_content|safe }}
+        <a href="/" class="back-link">Generate another post</a>
+    </div>
+</body>
+
+</html>
