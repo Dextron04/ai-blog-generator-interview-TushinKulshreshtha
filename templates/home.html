@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <span>📝</span>
+        </div>
+        <h1>Blog Post Generator</h1>
+        <p>Welcome! This tool will help you generate blog posts using AI.<br>Get started by clicking the button below.
+        </p>
+        <form method="get" action="/generate" class="input-form">
+            <label for="keyword">Enter a word:</label>
+            <input type="text" id="keyword" name="keyword" placeholder="e.g. technology" required>
+            <button type="submit" class="cta-btn">Generate a Blog Post</button>
+        </form>
+    </div>
+</body>
+
+</html>
