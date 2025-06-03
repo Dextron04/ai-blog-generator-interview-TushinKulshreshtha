@@ -9,8 +9,19 @@
 </head>
 
 <body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
     <div class="blog-container">
-        {{ html_content|safe }}
+        <div class="blog-header">
+            <div class="logo">📝</div>
+            <h1 class="blog-title">Blog Post for: <span>{{ keyword }}</span></h1>
+        </div>
+        <div class="blog-content">
+            {{ html_content|safe }}
+        </div>
         <a href="/" class="back-link">Generate another post</a>
     </div>
 </body>

@@ -9,19 +9,69 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="logo">
-            <span>📝</span>
-        </div>
-        <h1>Blog Post Generator</h1>
-        <p>Welcome! This tool will help you generate blog posts using AI.<br>Get started by clicking the button below.
-        </p>
-        <form method="get" action="/generate" class="input-form">
-            <label for="keyword">Enter a word:</label>
-            <input type="text" id="keyword" name="keyword" placeholder="e.g. technology" required>
-            <button type="submit" class="cta-btn">Generate a Blog Post</button>
-        </form>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
+    <div class="container">
+        <div class="logo">📝</div>
+        <h1>Blog Post Generator</h1>
+        <p class="subtitle">Transform any keyword into engaging, AI-powered blog content in seconds. Professional
+            quality, instantly generated.</p>
+        <form method="get" action="/generate" class="input-form">
+            <div class="input-group">
+                <label for="keyword">Enter Your Topic</label>
+                <div class="input-wrapper">
+                    <input type="text" id="keyword" name="keyword"
+                        placeholder="e.g. artificial intelligence, cooking tips, travel..." required>
+                </div>
+            </div>
+            <button type="submit" class="cta-btn">
+                ✨ Generate Blog Post
+            </button>
+        </form>
+        <div class="features">
+            <div class="feature-list">
+                <div class="feature">
+                    <span class="feature-icon">⚡</span>
+                    <span class="feature-text">Instant</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎯</span>
+                    <span class="feature-text">Targeted</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">✨</span>
+                    <span class="feature-text">AI-Powered</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Add some interactive effects
+        const form = document.querySelector('.input-form');
+        const button = document.querySelector('.cta-btn');
+        const input = document.querySelector('#keyword');
+        form.addEventListener('submit', function (e) {
+            button.classList.add('loading');
+            button.textContent = 'Generating...';
+        });
+        // Add input animation
+        input.addEventListener('input', function () {
+            if (this.value.length > 0) {
+                this.style.background = 'white';
+            } else {
+                this.style.background = '#f8fafc';
+            }
+        });
+        // Add floating animation to features
+        const features = document.querySelectorAll('.feature');
+        features.forEach((feature, index) => {
+            feature.style.animationDelay = `${index * 0.1}s`;
+            feature.style.animation = 'slideIn 0.6s ease-out forwards';
+        });
+    </script>
 </body>
 
 </html>
