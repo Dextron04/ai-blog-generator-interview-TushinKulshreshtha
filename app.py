@@ -1,7 +1,10 @@
+from dotenv import load_dotenv
+load_dotenv()
 from flask import request, Flask, render_template
 from markupsafe import Markup
 from ai_generator.generator import generate_blog_post
 import markdown2
+import scheduler
 
 app = Flask(__name__)
 
@@ -24,4 +27,5 @@ def generate_blog_post_route():
     return render_template('blog.html', keyword=keyword, html_content=html_content)
 
 if __name__ == '__main__':
+    scheduler.generate_and_save_daily_post()
     app.run(debug=True) 

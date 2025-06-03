@@ -63,7 +63,16 @@ Begin now.
             temperature=0.7,
             max_tokens=1000
         )
-        return response.choices[0].message.content
+        markdown_content = response.choices[0].message.content
+        # Replace [Affiliate Link Here] and {{AFF_LINK_n}} with dummy URLs
+        for i in range(1, 6):
+            markdown_content = markdown_content.replace(f"{{{{AFF_LINK_{i}}}}}", f"https://example.com/affiliate-link-{i}")
+        # Replace all [Affiliate Link Here] with unique dummy URLs
+        aff_count = 1
+        while '[Affiliate Link Here]' in markdown_content:
+            markdown_content = markdown_content.replace('[Affiliate Link Here]', f'https://example.com/affiliate-link-{aff_count}', 1)
+            aff_count += 1
+        return markdown_content
     except Exception as e:
         print(f"OpenAI API error: {e}")
         return "Error generating blog post." 
