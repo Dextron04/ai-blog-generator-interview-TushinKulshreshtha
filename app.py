@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 load_dotenv()
-from flask import request, Flask, render_template
+from flask import request, Flask, render_template, jsonify
 from markupsafe import Markup
 from ai_generator.generator import generate_blog_post
 import markdown2
@@ -24,6 +24,13 @@ def generate_blog_post_route():
     if markdown_content.strip().endswith('```'):
         markdown_content = markdown_content.strip()[:-3].rstrip()
     html_content = Markup(markdown2.markdown(markdown_content))
+    # Check for JSON request
+    if request.args.get('format') == 'json' or request.headers.get('Accept') == 'application/json':
+        return jsonify({
+            'keyword': keyword,
+            'markdown': markdown_content,
+            'html': str(html_content)
+        })
     return render_template('blog.html', keyword=keyword, html_content=html_content)
 
 if __name__ == '__main__':
