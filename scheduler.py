@@ -2,7 +2,6 @@ from dotenv import load_dotenv
 load_dotenv()
 from apscheduler.schedulers.background import BackgroundScheduler
 from ai_generator.generator import generate_blog_post
-import feedparser
 import datetime
 import os
 import random

@@ -5,6 +5,8 @@ from markupsafe import Markup
 from ai_generator.generator import generate_blog_post
 import markdown2
 import scheduler
+import os
+import datetime
 
 app = Flask(__name__)
 
@@ -23,6 +25,13 @@ def generate_blog_post_route():
         markdown_content = markdown_content.strip()[len('```markdown'):].lstrip('\n')
     if markdown_content.strip().endswith('```'):
         markdown_content = markdown_content.strip()[:-3].rstrip()
+    # Save markdown to generated_posts folder
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+    safe_keyword = keyword.replace(' ', '_')
+    os.makedirs('generated_posts', exist_ok=True)
+    filename = f"generated_posts/blog_{safe_keyword}_{today}.md"
+    with open(filename, 'w', encoding='utf-8') as f:
+        f.write(markdown_content)
     html_content = Markup(markdown2.markdown(markdown_content))
     # Check for JSON request
     if request.args.get('format') == 'json' or request.headers.get('Accept') == 'application/json':
