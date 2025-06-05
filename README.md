@@ -22,18 +22,8 @@ This project is a modern, modular Flask application that uses OpenAI's GPT model
 - **Affiliate Link Placeholders:** Posts include affiliate link prompts, replaced with dummy URLs for easy monetization.
 - **No Coding Required:** Simple web interface—just enter a keyword and click a button.
 - **Daily Automation:** A scheduler automatically generates a new blog post every day using a random trending keyword, saving it to the `generated_posts/` directory.
+- **User-Generated Posts Saved:** When a user generates a post, it is also saved as a markdown file in the `generated_posts/` directory.
 - **Environment Variable Support:** Securely loads your OpenAI API key from a `.env` file.
-
----
-
-## How It Works
-
-1. **User Input:** On the home page, enter a keyword (e.g., "technology").
-2. **AI & SEO:** The app fetches random SEO metrics and sends a detailed prompt to OpenAI's GPT model.
-3. **Blog Generation:** The AI returns a markdown-formatted, SEO-optimized blog post.
-4. **Display:** The post is converted to HTML and shown in a beautiful, readable format.
-5. **Daily Automation:** Each day, the app picks a trending keyword and generates a new blog post automatically.
-6. **Repeat:** Generate as many posts as you like, for any keyword!
 
 ---
 
@@ -67,13 +57,15 @@ pip install -r requirements.txt
   OPENAI_API_KEY=your_openai_api_key_here
   ```
 
-### 5. Run the App
+### 5. Run the Application
 
 ```bash
 python app.py
 ```
 
-Visit [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
+- Visit [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
+- Enter a keyword and generate a blog post instantly.
+- All generated posts (both scheduled and user-generated) are saved as markdown files in the `generated_posts/` directory.
 
 ---
 
@@ -91,11 +83,11 @@ Visit [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
 ├── static/
 │   ├── style.css
 │   └── blog.css
-└── templates/
-    ├── home.html
-    └── blog.html
+├── templates/
+│   ├── home.html
+│   └── blog.html
 └── generated_posts/
-    └── (auto-generated daily blog posts)
+    └── (auto-generated and user-generated blog posts)
 ```
 
 ---
@@ -108,6 +100,7 @@ Visit [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
 - **Professional Quality:** Uses OpenAI's advanced language models for natural, engaging, and informative content.
 - **Easy to Use:** Just enter a keyword and get a ready-to-publish blog post.
 - **Automated Content:** Never miss a day—fresh content is generated automatically every day.
+- **All Posts Saved:** Every generated post is saved for your records and future use.
 
 ---
 
